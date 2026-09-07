@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -40,7 +41,7 @@ public class Resource {
 
     private String type;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Location is required")
     private String location;
 
     @Column(nullable = false, name = "price_per_hour")
